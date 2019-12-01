@@ -57,6 +57,11 @@ walkpgdir(pde_t *pgdir, const void *va, int alloc)
 // Create PTEs for virtual addresses starting at va that refer to
 // physical addresses starting at pa. va and size might not
 // be page-aligned.
+
+// [toasa]
+// 開始アドレス va, サイズ size の仮想メモリブロックを, 4KB(= PGSIZE)ごとに分割する
+// 分割した仮想アドレスのメモリイテレータ a に基づき、pte を検索し、
+// 物理アドレス pa と対応付ける
 static int
 mappages(pde_t *pgdir, void *va, uint size, uint pa, int perm)
 {
